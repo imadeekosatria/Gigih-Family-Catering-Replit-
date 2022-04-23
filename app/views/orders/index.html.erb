@@ -1,14 +1,28 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Orders</h1>
-
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
+<div class="container-xl" id="foods">
+  
+  <%= notice %>
+  <h1 class="text-center">Orders</h1>
+  <%= link_to "New Order", new_order_path, :class => "btn btn-primary my-1" %>
+  <table class="table table-light table-hover table-striped rounded">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama Pelanggan</th>
+        <th scope="col" colspan="2">Total</th>    
+      </tr>
+    </thead>
+    <tbody>
+      <% i = 1 %>
+      <% @orders.each do |order| %>
+        <tr>
+          <th scope="row"><%= i %></th>
+          <td><%=  %></td>
+          <td><%=  %></td>
+          <td><%= link_to "More", order, :class => "btn btn-outline-secondary btn-md" %></td>
+        </tr>
+      <% i += 1 %>  
+      <% end %>
+        
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New order", new_order_path %>

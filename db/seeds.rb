@@ -13,3 +13,7 @@ Food.create(name: 'Nasi Goreng Sea Food', price: 12000, category: 'Nasi Goreng')
 Food.create(name: 'Nasi Goreng Telur', price: 15000, category: 'Nasi Goreng')
 Food.create(name: 'Sate Ayam', price: 10000, category: 'Sate')
 Food.create(name: 'Sate Kambing', price: 15000, category: 'Sate')
+
+Customer.create(name: 'Eko', email: 'eko.1@gmail.com')
+Customer.create(name: 'Mina', email: 'mina@gmail.com')
+Customer.create(name: 'Melania', email: 'melania@gmail.com')
