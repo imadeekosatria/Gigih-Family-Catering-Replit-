@@ -1,26 +1,4 @@
 class Food < ApplicationRecord
-  #for index
-  def index
-    @food = Food.all
-  end
-
-  def create
-    @food = Food.new    
-  end
-
-  def edit
-  end
-
-  def create
-    @food = Food.new(menu_params)
-  end
-
-  private
-    def set_food
-      @food = Food.find(params[:id])
-    end
-
-    def menu_params
-      params.require(:food).permit(:name, :price, :category)
-    end
+  validates :name, presence: true, length: { maximum: 150, message: 'Nama maksimum 150 karakter'}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 0.01, message: 'Harga tidak boleh kurang dari 0.01'}
 end
