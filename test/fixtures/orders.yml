@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_customer: MyString
+  id_food: MyString
+  status: MyString
+
+two:
+  id_customer: MyString
+  id_food: MyString
+  status: MyString
