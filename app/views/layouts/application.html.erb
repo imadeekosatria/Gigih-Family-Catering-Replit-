@@ -17,7 +17,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
               <%= link_to "Home", foods_path, :class => "nav-link active" %>
@@ -29,9 +29,36 @@
               <%= link_to "Customers", customers_path, :class => "nav-link" %>
             </li>
           </ul>
+
+          <span class="navbar-text" id="clock">
+            
+          </span>
         </div>
       </div>
     </nav>
     <%= yield %>
+
+
+    <script>
+      //Source Stackoverflow
+      const clock = document.getElementById("clock");
+
+      function concatZero(timeFrame) {
+        return timeFrame < 10 ? '0'.concat(timeFrame) : timeFrame
+      }
+
+      function realTime() {
+        let date = new Date()
+        let sec = date.getSeconds()
+        let mon = date.getMinutes()
+        let hr = date.getHours()
+        // 12 hour time
+        // If the hour equals 0 or 12, the remainder equals 0, so output 12 instead. (0 || 12 = 12)
+        clock.textContent = `${concatZero((hr % 12) || 12)} : ${concatZero(mon)} : ${concatZero(sec)} ${hr >= 12 ? 'PM' : 'AM'}`
+        
+      }
+
+      setInterval(realTime, 1000)
+    </script>
   </body>
 </html>
